@@ -1,1 +1,47 @@
 <h1>this is the people view</h1>
+
+<div ng-if="peoples">
+<ul>
+	<li ng-repeat="people in peoples.data.results track by $index"><a href="#!/people/{{extractUrlId(people.url)}}">{{people.name}}</a></li>
+</ul>
+<button type="button" name="prev" ng-click="pageNumberDecrement()"> <- </button>
+<span>Page : {{pageNumber}}</span>
+<button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
+</div>
+
+<div ng-if="people">
+
+<h2>{{people.data.name}}</h2>
+<div ng-if="people.data.films">Films :
+	<span ng-repeat="film in people.data.films track by $index">
+		<a href="#!/films/{{extractUrlId(film)}}">film {{$index}}</a>
+	</span>
+</div>
+
+<ul>
+	<li>Homeworld: <a href="#!/planets/{{extractUrlId(people.data.homeworld)}}">planet {{$index}}</a></li>
+	<li>Gender: {{people.data.gender}}</li>
+	<li>Birth year: {{people.data.birth_year}}</li>
+	<li>Heigth: {{people.data.height}}</li>
+	<li>Mass: {{people.data.mass}}</li>
+	<li>Eye color: {{people.data.eye_color}}</li>
+	<li>Skin color: {{people.data.skin_color}}</li>
+	<li>Hair color: {{people.data.hair_color}}</li>
+	<li>Species :
+		<ul ng-repeat="race in people.data.species track by $index">
+			<li><a href="#!/species/{{extractUrlId(race)}}">race {{$index}}</a></li>
+		</ul>
+	</li>
+	<li ng-if="people.data.starships.length > 0">Starships :
+		<ul ng-repeat="starship in people.data.starships track by $index">
+			<li><a href="#!/starships/{{extractUrlId(starship)}}">starship {{$index}}</a></li>
+		</ul>
+	</li>
+	<li ng-if="people.data.vehicles.length > 0">Vehicles :
+		<ul ng-repeat="vehicle in people.data.vehicles track by $index">
+			<li><a href="#!/vehicles/{{extractUrlId(vehicle)}}">vehicle {{$index}}</a></li>
+		</ul>
+	</li>
+</ul>
+
+</div>
