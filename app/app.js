@@ -18,6 +18,14 @@ function config($routeProvider){
 		 templateUrl: 'app/people/people.html', controller: 'PeopleController'
 
 	 })
+	 .when('/vehicles', {
+		templateUrl: 'app/vehicles/vehicles.html', controller: 'VehiclesController'
+
+	})
+	.when('/vehicles/:vehicleId', {
+	   templateUrl: 'app/vehicles/vehicles.html', controller: 'VehiclesController'
+
+   })
 	   .otherwise({
 		   redirectTo: '/'
 	   });
