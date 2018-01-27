@@ -1,5 +1,6 @@
 angular.module('StarWarsAngularJS')
-	.controller('PeopleController', ['$scope', '$location', '$routeParams', 'PeopleService', function($scope, $location, $routeParams, PeopleService){
+	.controller('PeopleController', ['$scope', '$location', '$routeParams', 'PeopleService', 'ToolsFactory',
+	 function($scope, $location, $routeParams, PeopleService, ToolsFactory){
 
 
 		$scope.getAllPeople = function(){
@@ -23,9 +24,13 @@ angular.module('StarWarsAngularJS')
 		}
 
 		$scope.extractUrlId = function(string){
-			var tab = string.split("/");
-			return tab[tab.length - 2];
+			return ToolsFactory.extractUrlId(string);
 		}
+
+		// $scope.extractUrlId = function(string){
+		// 	var tab = string.split("/");
+		// 	return tab[tab.length - 2];
+		// }
 
 		$scope.pageNumberIncrement = function(){
 				$scope.pageNumber ++;
