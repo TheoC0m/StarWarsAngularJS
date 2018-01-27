@@ -18,14 +18,22 @@ function config($routeProvider){
 		 templateUrl: 'app/people/people.html', controller: 'PeopleController'
 
 	 })
-	 .when('/vehicles', {
-		templateUrl: 'app/vehicles/vehicles.html', controller: 'VehiclesController'
+	 .when('/films', {
+		templateUrl: 'app/films/films.html', controller: 'VehiclesController'
 
 	})
-	.when('/vehicles/:vehicleId', {
-	   templateUrl: 'app/vehicles/vehicles.html', controller: 'VehiclesController'
+		.when('/films/:vehicleId', {
+	   templateUrl: 'app/films/films.html', controller: 'VehiclesController'
 
-   })
+   	})
+		.when('/films', {
+	   templateUrl: 'app/films/films.html', controller: 'FilmsController'
+
+	})
+		.when('/films/:filmId', {
+	  templateUrl: 'app/films/films.html', controller: 'FilmsController'
+
+	})
 	   .otherwise({
 		   redirectTo: '/'
 	   });

@@ -5,9 +5,14 @@
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular-route/angular-route.min.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/factories/utilityTools.factory.js"></script>
     <script src="app/home/home.controller.js"></script>
     <script src="app/people/people.controller.js"></script>
     <script src="app/people/people.service.js"></script>
+    <script src="app/vehicles/vehicles.controller.js"></script>
+    <script src="app/vehicles/vehicles.service.js"></script>
+    <script src="app/films/films.controller.js"></script>
+    <script src="app/films/films.service.js"></script>
 
     <meta charset="utf-8">
     <title>StarWarsAnguarJS</title>
@@ -15,10 +20,12 @@
 
 <body ng-app="StarWarsAngularJS">
     <header>
-        <li>
-            <ul><a href="#!/">Home</a></ul>
-            <ul><a href="#!/people">People</a></ul>
-        </li>
+        <ul>
+            <li><a href="#!/">Home</a></li>
+            <li><a href="#!/films">Films</a></li>
+            <li><a href="#!/people">People</a></li>
+            <li><a href="#!/vehicles">Vehicles</a></li>
+        </ul>
     </header>
 
     <ng-view></ng-view>

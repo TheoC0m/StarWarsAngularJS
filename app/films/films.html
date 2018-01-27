@@ -1,0 +1,39 @@
+<h1>this is the film view</h1>
+
+<div ng-if="films">
+<ul>
+	<li ng-repeat="film in films.data.results track by $index"><a href="#!/films/{{extractUrlId(film.url)}}">{{film.name}}</a></li>
+</ul>
+<button type="button" name="prev" ng-click="pageNumberDecrement()"> <- </button>
+<span>Page : {{pageNumber}}</span>
+<button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
+</div>
+
+<div ng-if="film">
+
+<h2>{{film.data.name}}</h2>
+<div ng-if="film.data.films">Films :
+	<span ng-repeat="film in film.data.films track by $index">
+		<a href="#!/films/{{extractUrlId(film)}}">film {{$index}}</a>
+	</span>
+</div>
+
+<ul>
+	<li>Vehicle class: {{film.data.film_class}}</li>
+	<li>Model: {{film.data.model}}</li>
+	<li>Manufacturer: {{film.data.manufacturer}}</li>
+	<li>Length: {{film.data.length}}</li>
+	<li>Speed: {{film.data.speed}}</li>
+	<li>Crew: {{film.data.crew}}</li>
+	<li>Passengers: {{film.data.passengers}}</li>
+	<li>Cargo capacity: {{film.data.cargo_capacity}}</li>
+	<li>Consumables: {{film.data.consumables}}</li>
+	<li>Price: {{film.data.cost_in_credits}}</li>
+	<li>Pilot(s) :
+		<ul ng-repeat="pilot in film.data.pilots track by $index">
+			<li><a href="#!/people/{{extractUrlId(pilot)}}">pilot {{$index}}</a></li>
+		</ul>
+	</li>
+</ul>
+
+</div>
