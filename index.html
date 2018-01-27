@@ -6,17 +6,24 @@
     <script src="node_modules/angular-route/angular-route.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <scritp src="app/people/people.contoller.js"></script>
+    <script src="app/people/people.service.js"></script>
 
     <meta charset="utf-8">
     <title>StarWarsAnguarJS</title>
 </head>
 
 <body ng-app="StarWarsAngularJS">
-    <nav>
-    <h1>A long time ago in a galaxy far, far away</h1>
-    </nav>
+    <header>
+        <h3>Ceci est le header</h3>
+    </header>
+
     <ng-view></ng-view>
 
+
+    <header>
+        <h3>Ceci est le footer</h3>
+    </header>
 
 </body>
 
