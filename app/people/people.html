@@ -1,6 +1,13 @@
 <h1>this is the people view</h1>
 
-<div ng-if="peoples">
+<div ng-show="peoples">
+	<div>
+	<input type="text" ng-model="peopleSearched">
+	<button ng-click="searchPeople()">Search a character</button>
+	<span ng-repeat="result in searchResult.data.results track by $index"><a href="#!/people/{{extractUrlId(result.url)}}">{{result.name}}</a></span>
+
+
+	</div>
 <ul>
 	<li ng-repeat="people in peoples.data.results track by $index"><a href="#!/people/{{extractUrlId(people.url)}}">{{people.name}}</a></li>
 </ul>
@@ -14,7 +21,7 @@
 <h2>{{people.data.name}}</h2>
 <div ng-if="people.data.films">Films :
 	<span ng-repeat="film in people.data.films track by $index">
-		<a href="#!/films/{{extractUrlId(film)}}">film {{$index}}</a>
+		<a href="#!/films/{{extractUrlId(film)}}"> film {{$index}}</a>
 	</span>
 </div>
 

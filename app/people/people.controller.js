@@ -23,14 +23,36 @@ angular.module('StarWarsAngularJS')
 				})
 		}
 
+		$scope.searchPeople = function(){
+			PeopleService.searchPeople($scope.peopleSearched)
+				.then(function(response){
+					if(response != undefined){
+						console.log(response);
+						console.log($scope.peopleSearched);
+						$scope.searchResult = response;
+					}
+				})
+		}
+
+		// $scope.getFilmName = function(string){
+		// 	console.log(string);
+		//
+		// 	PeopleService.getFilmName($scope.extractUrlId(string))
+		// 		.then(function(response){
+		// 			if(response != undefined){
+		// 				console.log(response);
+		//
+		// 				//$scope.searchResult = response;
+		// 				//return response.data;
+		// 				$scope.filmName = response.data.title;
+		// 				console.log($scope.filmName);
+		// 			}
+		// 		})
+		// }
+
 		$scope.extractUrlId = function(string){
 			return ToolsFactory.extractUrlId(string);
 		}
-
-		// $scope.extractUrlId = function(string){
-		// 	var tab = string.split("/");
-		// 	return tab[tab.length - 2];
-		// }
 
 		$scope.pageNumberIncrement = function(){
 				$scope.pageNumber ++;
@@ -45,13 +67,20 @@ angular.module('StarWarsAngularJS')
 
 		$scope.start = function(){
 			console.log($routeParams);
+			$scope.peopleSearched = "test";
+			$scope.searchResult = null;
+			$scope.people = null;
+			$scope.peoples = null;
+			$scope.filmName = null;
+
+
 			if($routeParams.peopleId){
-				$scope.people = null;
+
 				$scope.getPeople();
 
 			}
 			else{
-				$scope.peoples = null;
+
 				$scope.pageNumber = 1;
 				$scope.getAllPeople();
 			}

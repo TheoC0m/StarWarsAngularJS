@@ -27,11 +27,6 @@ angular.module('StarWarsAngularJS')
 			return ToolsFactory.extractUrlId(string);
 		}
 
-		// $scope.extractUrlId = function(string){
-		// 	var tab = string.split("/");
-		// 	return tab[tab.length - 2];
-		// }
-
 		$scope.pageNumberIncrement = function(){
 				$scope.pageNumber ++;
 				$scope.getAllFilms();
@@ -45,6 +40,8 @@ angular.module('StarWarsAngularJS')
 
 		$scope.start = function(){
 			console.log($routeParams);
+
+			$scope.characterName = [];
 			if($routeParams.filmId){
 				$scope.film = null;
 				$scope.getFilms();
