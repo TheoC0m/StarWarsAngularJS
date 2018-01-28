@@ -6,7 +6,7 @@ angular.module("StarWarsAngularJS")
 		service.getAllFilms = function(pageNumber){
 			return $http({
 				method: "GET",
-				url: "https://swapi.co/api/films?page="+pageNumber
+				url: "https://swapi.co/api/films/?page="+pageNumber
 			})
 			.then(function(response){
 				return response;
@@ -19,7 +19,7 @@ angular.module("StarWarsAngularJS")
 		service.getFilms = function(filmId){
 			return $http({
 				method: "GET",
-				url: "https://swapi.co/api/films/"+filmId
+				url: "https://swapi.co/api/films/"+filmId+"/"
 			})
 			.then(function(response){
 				return response;

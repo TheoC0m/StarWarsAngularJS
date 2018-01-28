@@ -6,7 +6,7 @@ angular.module("StarWarsAngularJS")
 		service.getAllPeople = function(pageNumber){
 			return $http({
 				method: "GET",
-				url: "https://swapi.co/api/people?page="+pageNumber
+				url: "https://swapi.co/api/people/?page="+pageNumber
 			})
 			.then(function(response){
 				return response;
@@ -19,7 +19,7 @@ angular.module("StarWarsAngularJS")
 		service.getPeople = function(peopleId){
 			return $http({
 				method: "GET",
-				url: "https://swapi.co/api/people/"+peopleId
+				url: "https://swapi.co/api/people/"+peopleId+"/"
 			})
 			.then(function(response){
 				return response;
