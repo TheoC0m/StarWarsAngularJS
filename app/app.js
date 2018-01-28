@@ -34,6 +34,14 @@ function config($routeProvider){
 	  templateUrl: 'app/films/films.html', controller: 'FilmsController'
 
 	})
+	.when('/starships', {
+   templateUrl: 'app/starships/starships.html', controller: 'StarshipsController'
+
+})
+	.when('/starships/:starshipId', {
+  templateUrl: 'app/starships/starships.html', controller: 'StarshipsController'
+
+})
 	   .otherwise({
 		   redirectTo: '/'
 	   });

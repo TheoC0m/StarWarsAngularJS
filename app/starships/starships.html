@@ -1,0 +1,39 @@
+<h1>this is the starship view</h1>
+
+<div ng-if="starships">
+<ul>
+	<li ng-repeat="starship in starships.data.results track by $index"><a href="#!/starships/{{extractUrlId(starship.url)}}">{{starship.name}}</a></li>
+</ul>
+<button type="button" name="prev" ng-click="pageNumberDecrement()"> <- </button>
+<span>Page : {{pageNumber}}</span>
+<button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
+</div>
+
+<div ng-if="starship">
+
+<h2>{{starship.data.name}}</h2>
+<div ng-if="starship.data.films">Films :
+	<span ng-repeat="film in starship.data.films track by $index">
+		<a href="#!/films/{{extractUrlId(film)}}">film {{$index}}</a>
+	</span>
+</div>
+
+<ul>
+	<li>Starship class: {{starship.data.starship_class}}</li>
+	<li>Model: {{starship.data.model}}</li>
+	<li>Manufacturer: {{starship.data.manufacturer}}</li>
+	<li>Length: {{starship.data.length}}</li>
+	<li>Hyperdrive rating: {{starship.data.hyperdrive_rating}}</li>
+	<li>Crew: {{starship.data.crew}}</li>
+	<li>Passengers: {{starship.data.passengers}}</li>
+	<li>Cargo capacity: {{starship.data.cargo_capacity}}</li>
+	<li>Consumables: {{starship.data.consumables}}</li>
+	<li>Price: {{starship.data.cost_in_credits}}</li>
+	<li ng-if="starship.data.pilots.length > 0 ">Pilot(s) :
+		<ul ng-repeat="pilot in starship.data.pilots track by $index">
+			<li><a href="#!/people/{{extractUrlId(pilot)}}">pilot {{$index}}</a></li>
+		</ul>
+	</li>
+</ul>
+
+</div>
