@@ -42,6 +42,14 @@ function config($routeProvider){
   templateUrl: 'app/starships/starships.html', controller: 'StarshipsController'
 
 })
+.when('/species', {
+templateUrl: 'app/species/species.html', controller: 'SpeciesController'
+
+})
+.when('/species/:speciesId', {
+templateUrl: 'app/species/species.html', controller: 'SpeciesController'
+
+})
 	   .otherwise({
 		   redirectTo: '/'
 	   });
