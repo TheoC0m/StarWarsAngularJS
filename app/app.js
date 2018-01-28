@@ -50,6 +50,14 @@ templateUrl: 'app/species/species.html', controller: 'SpeciesController'
 templateUrl: 'app/species/species.html', controller: 'SpeciesController'
 
 })
+.when('/planets', {
+templateUrl: 'app/planets/planets.html', controller: 'PlanetsController'
+
+})
+.when('/planets/:planetId', {
+templateUrl: 'app/planets/planets.html', controller: 'PlanetsController'
+
+})
 	   .otherwise({
 		   redirectTo: '/'
 	   });
