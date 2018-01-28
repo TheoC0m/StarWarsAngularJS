@@ -1,0 +1,37 @@
+<h1>this is the planet view</h1>
+
+<div ng-if="planets">
+<ul>
+	<li ng-repeat="planet in planets.data.results track by $index"><a href="#!/planets/{{extractUrlId(planet.url)}}">{{planet.name}}</a></li>
+</ul>
+<button type="button" name="prev" ng-click="pageNumberDecrement()"> <- </button>
+<span>Page : {{pageNumber}}</span>
+<button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
+</div>
+
+<div ng-if="planet">
+
+<h2>{{planet.data.name}}</h2>
+<div ng-if="planet.data.films">Films :
+	<span ng-repeat="film in planet.data.films track by $index">
+		<a href="#!/films/{{extractUrlId(film)}}">film {{$index}}</a>
+	</span>
+</div>
+
+<ul>
+	<li>Diameter : {{planet.data.diameter}}</li>
+	<li>Gravity : {{planet.data.gravity}}</li>
+	<li>Orbital Period : {{planet.data.orbital_period}}</li>
+	<li>Rotation period : {{planet.data.rotation_period}}</li>
+	<li>Climate : {{planet.data.climate}}</li>
+	<li>Water surface : {{planet.data.surface_water}}</li>
+	<li>Terrain : {{planet.data.terrain}}</li>
+	<li>Population : {{planet.data.population}}</li>
+	<li ng-if="planet.data.residents.length > 0">Characters :
+		<ul ng-repeat="resident in planet.data.residents track by $index">
+			<li><a href="#!/people/{{extractUrlId(resident)}}">character {{$index}}</a></li>
+		</ul>
+	</li>
+</ul>
+
+</div>
