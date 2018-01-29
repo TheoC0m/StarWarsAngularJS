@@ -8,13 +8,13 @@ angular.module('StarWarsAngularJS')
          },
 
 
-		getPeopleName : function(peopleId){
+		getFilmName : function(filmId){
             return $http({
 				method: "GET",
-				url: "https://swapi.co/api/people/"+peopleId+"/"
+				url: "https://swapi.co/api/films/"+filmId+"/"
 			})
 			.then(function(response){
-				return response.data.name;
+				return response.data.title;
 			})
 			.catch(function(){
 				return undefined;

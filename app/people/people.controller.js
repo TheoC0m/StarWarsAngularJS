@@ -19,6 +19,19 @@ angular.module('StarWarsAngularJS')
 					if(response != undefined){
 						$scope.people = response;
 						console.log($scope.people);
+
+						//On recupere les titres des films
+						// for (var film in $scope.people.data.films){
+						// ToolsFactory.getFilmName(film)
+						// .then(function(filmName){
+						// 	if(filmName != undefined){
+						// 		$scope.filmNames.push(filmName);
+						// 	}
+						// })
+						// }
+
+
+
 					}
 				})
 		}
@@ -71,7 +84,7 @@ angular.module('StarWarsAngularJS')
 			$scope.searchResult = null;
 			$scope.people = null;
 			$scope.peoples = null;
-			$scope.filmName = null;
+			$scope.filmNames = [];
 
 
 			if($routeParams.peopleId){

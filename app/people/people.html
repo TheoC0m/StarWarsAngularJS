@@ -1,6 +1,9 @@
 <h1>this is the people view</h1>
 
 <div ng-show="peoples">
+
+
+
 	<div>
 	<input type="text" ng-model="peopleSearched">
 	<button ng-click="searchPeople()">Search a character</button>
@@ -15,6 +18,8 @@
 </div>
 
 <div ng-if="people">
+
+	<!-- {{filmNames}} -->
 
 <h2>{{people.data.name}}</h2>
 <div ng-if="people.data.films">Films :
