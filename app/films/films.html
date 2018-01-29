@@ -10,7 +10,7 @@
 <button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
 </div> -->
 
-<div class="col" ng-repeat="film in films.data.results track by $index">
+<div class="col card-group" ng-repeat="film in films.data.results track by $index">
 <div class="card my-2" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><a href="#!/films/{{extractUrlId(film.url)}}">{{film.title}}</a></h5>
