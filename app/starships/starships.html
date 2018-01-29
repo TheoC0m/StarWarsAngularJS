@@ -1,6 +1,11 @@
 <h1>this is the starship view</h1>
 
-<div ng-if="starships">
+<div ng-show="starships">
+	<div>
+	<input type="text" ng-model="starshipsSearched">
+	<button ng-click="searchStarships()">Search a starship</button>
+	<span ng-repeat="result in searchResult.data.results track by $index"><a href="#!/starships/{{extractUrlId(result.url)}}">{{result.name}}</a></span>
+	</div>
 <ul>
 	<li ng-repeat="starship in starships.data.results track by $index"><a href="#!/starships/{{extractUrlId(starship.url)}}">{{starship.name}}</a></li>
 </ul>

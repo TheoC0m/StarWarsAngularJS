@@ -5,8 +5,6 @@
 	<input type="text" ng-model="peopleSearched">
 	<button ng-click="searchPeople()">Search a character</button>
 	<span ng-repeat="result in searchResult.data.results track by $index"><a href="#!/people/{{extractUrlId(result.url)}}">{{result.name}}</a></span>
-
-
 	</div>
 <ul>
 	<li ng-repeat="people in peoples.data.results track by $index"><a href="#!/people/{{extractUrlId(people.url)}}">{{people.name}}</a></li>
@@ -26,7 +24,7 @@
 </div>
 
 <ul>
-	<li>Homeworld: <a href="#!/planets/{{extractUrlId(people.data.homeworld)}}">planet</a></li>
+	<li ng-if="people.data.homeworld">Homeworld: <a href="#!/planets/{{extractUrlId(people.data.homeworld)}}">planet</a></li>
 	<li>Gender: {{people.data.gender}}</li>
 	<li>Birth year: {{people.data.birth_year}}</li>
 	<li>Heigth: {{people.data.height}}</li>
@@ -36,17 +34,17 @@
 	<li>Hair color: {{people.data.hair_color}}</li>
 	<li>Species :
 		<ul ng-repeat="race in people.data.species track by $index">
-			<li><a href="#!/species/{{extractUrlId(race)}}">race {{$index}}</a></li>
+			<li ng-if="people.data.species"><a href="#!/species/{{extractUrlId(race)}}">race {{$index}}</a></li>
 		</ul>
 	</li>
 	<li ng-if="people.data.starships.length > 0">Starships :
 		<ul ng-repeat="starship in people.data.starships track by $index">
-			<li><a href="#!/starships/{{extractUrlId(starship)}}">starship {{$index}}</a></li>
+			<li ng-if="people.data.starships"><a href="#!/starships/{{extractUrlId(starship)}}">starship {{$index}}</a></li>
 		</ul>
 	</li>
 	<li ng-if="people.data.vehicles.length > 0">Vehicles :
 		<ul ng-repeat="vehicle in people.data.vehicles track by $index">
-			<li><a href="#!/vehicles/{{extractUrlId(vehicle)}}">vehicle {{$index}}</a></li>
+			<li ng-if="people.data.vehicles"><a href="#!/vehicles/{{extractUrlId(vehicle)}}">vehicle {{$index}}</a></li>
 		</ul>
 	</li>
 </ul>

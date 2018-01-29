@@ -23,6 +23,17 @@ angular.module('StarWarsAngularJS')
 				})
 		}
 
+		$scope.searchSpecies = function(){
+			SpeciesService.searchSpecies($scope.speciesSearched)
+				.then(function(response){
+					if(response != undefined){
+						console.log(response);
+						$scope.searchResult = response;
+						console.log($scope.sepeciesSearched);
+					}
+				})
+		}
+
 		$scope.extractUrlId = function(string){
 			return ToolsFactory.extractUrlId(string);
 		}
@@ -47,6 +58,8 @@ angular.module('StarWarsAngularJS')
 			console.log($routeParams);
 			$scope.race = null;
 			$scope.species = null;
+			$scope.speciesSearched = null;
+			$scope.searchResult = null;
 
 			if($routeParams.speciesId){
 				$scope.getSpecies();

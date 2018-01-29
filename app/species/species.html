@@ -1,6 +1,11 @@
 <h1>this is the species view</h1>
 
-<div ng-if="species">
+<div ng-show="species">
+	<div>
+	<input type="text" ng-model="speciesSearched">
+	<button ng-click="searchSpecies()">Search a species</button>
+	<span ng-repeat="result in searchResult.data.results track by $index"><a href="#!/species/{{extractUrlId(result.url)}}">{{result.name}}</a></span>
+	</div>
 <ul>
 	<li ng-repeat="race in species.data.results track by $index"><a href="#!/species/{{extractUrlId(race.url)}}">{{race.name}}</a></li>
 </ul>
@@ -19,7 +24,7 @@
 </div>
 
 <ul>
-	<li>Homeworld : <a href="#!/planets/{{extractUrlId(race.data.homeworld)}}">planet</a></li>
+	<li ng-if="race.data.homeworld">Homeworld : <a href="#!/planets/{{extractUrlId(race.data.homeworld)}}">planet</a></li>
 	<li>Designation : {{race.data.designation}}</li>
 	<li>Classification : {{race.data.classification}}</li>
 	<li>Language : {{race.data.language}}</li>
@@ -30,7 +35,7 @@
 	<li>Hair color : {{race.data.hair_colors}}</li>
 	<li>Characters :
 		<ul ng-repeat="character in race.data.people track by $index">
-			<li><a href="#!/people/{{extractUrlId(character)}}">character {{$index}}</a></li>
+			<li ng-if="race.data.people"><a href="#!/people/{{extractUrlId(character)}}">character {{$index}}</a></li>
 		</ul>
 	</li>
 </ul>

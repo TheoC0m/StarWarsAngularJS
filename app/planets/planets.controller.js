@@ -23,6 +23,17 @@ angular.module('StarWarsAngularJS')
 				})
 		}
 
+		$scope.searchPlanets = function(){
+			PlanetsService.searchPlanets($scope.planetsSearched)
+				.then(function(response){
+					if(response != undefined){
+						console.log(response);
+						console.log($scope.planetsSearched);
+						$scope.searchResult = response;
+					}
+				})
+		}
+
 		$scope.extractUrlId = function(string){
 			return ToolsFactory.extractUrlId(string);
 		}
@@ -45,6 +56,8 @@ angular.module('StarWarsAngularJS')
 
 		$scope.start = function(){
 			console.log($routeParams);
+			$scope.planetsSearched = null;
+			$scope.searchResult = null;
 			if($routeParams.planetId){
 				$scope.planet = null;
 				$scope.getPlanets();

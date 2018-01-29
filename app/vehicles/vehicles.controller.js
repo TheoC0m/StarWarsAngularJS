@@ -23,6 +23,17 @@ angular.module('StarWarsAngularJS')
 				})
 		}
 
+		$scope.searchVehicles = function(){
+			VehiclesService.searchVehicles($scope.vehiclesSearched)
+				.then(function(response){
+					if(response != undefined){
+						console.log(response);
+						console.log($scope.vehiclesSearched);
+						$scope.searchResult = response;
+					}
+				})
+		}
+
 		$scope.extractUrlId = function(string){
 			return ToolsFactory.extractUrlId(string);
 		}
@@ -45,6 +56,8 @@ angular.module('StarWarsAngularJS')
 
 		$scope.start = function(){
 			console.log($routeParams);
+			$scope.vehiclesSearched = null;
+			$scope.searchResult = null;
 			if($routeParams.vehicleId){
 				$scope.vehicle = null;
 				$scope.getVehicles();

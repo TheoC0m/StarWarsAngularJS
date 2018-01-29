@@ -23,6 +23,17 @@ angular.module('StarWarsAngularJS')
 				})
 		}
 
+		$scope.searchStarships = function(){
+			StarshipsService.searchStarships($scope.starshipsSearched)
+				.then(function(response){
+					if(response != undefined){
+						console.log(response);
+						console.log($scope.starshipsSearched);
+						$scope.searchResult = response;
+					}
+				})
+		}
+
 		$scope.extractUrlId = function(string){
 			return ToolsFactory.extractUrlId(string);
 		}
@@ -45,6 +56,8 @@ angular.module('StarWarsAngularJS')
 
 		$scope.start = function(){
 			console.log($routeParams);
+			$scope.starshipsSearched = null;
+			$scope.searchResult = null;
 			if($routeParams.starshipId){
 				$scope.starship = null;
 				$scope.getStarships();
