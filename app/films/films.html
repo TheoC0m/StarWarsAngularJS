@@ -1,47 +1,164 @@
-<h1>this is the film view</h1>
+<div ng-show="films">
+	<h1>Films</h1>
+<div class="row">
 
-<div ng-if="films">
-<ul>
-	<li ng-repeat="film in films.data.results track by $index"><a href="#!/films/{{extractUrlId(film.url)}}">{{film.title}}</a></li>
+<!-- <ul>
+	<li class="list-group-item" ng-repeat="film in films.data.results track by $index"><a href="#!/films/{{extractUrlId(film.url)}}">{{film.title}}</a></li>
 </ul>
 <button type="button" name="prev" ng-click="pageNumberDecrement()"> <- </button>
 <span>Page : {{pageNumber}}</span>
 <button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
+</div> -->
+
+<div class="col" ng-repeat="film in films.data.results track by $index">
+<div class="card my-2" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><a href="#!/films/{{extractUrlId(film.url)}}">{{film.title}}</a></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Episode {{film.episode_id}}</h6>
+    <p class="card-text">Directed by {{film.director}}</p>
+	<p class="card-text">Produced by {{film.producer}}</p>
+  </div>
+</div>
 </div>
 
-<div ng-if="film">
+
+
+<!--
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div> -->
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div ng-show="film">
+	<div class="row">
 
 <h2>{{film.data.title}}</h2>
 <div>
 	<h3>Opening</h3>
 	 {{film.data.opening_crawl}}
 </div>
-<ul>
-	<li>Release date : {{film.data.release_date}}</li>
-	<li>Episode # : {{film.data.episode_id}}</li>
-	<li>Director : {{film.data.director}}</li>
-	<li>Producer : {{film.data.producer}}</li>
+<ul class="list-group list-group-flush">
+	<li class="list-group-item">Release date : {{film.data.release_date}}</li>
+	<li class="list-group-item">Episode # : {{film.data.episode_id}}</li>
+	<li class="list-group-item">Director : {{film.data.director}}</li>
+	<li class="list-group-item">Producer : {{film.data.producer}}</li>
 
-	<li>Characters :
+	<li class="list-group-item">Characters :
 		<ul ng-repeat="character in film.data.characters track by $index">
-			<li><a href="#!/people/{{extractUrlId(character)}}">character {{$index}}</a></li>
+			<li class="list-group-item"><a href="#!/people/{{extractUrlId(character)}}">character {{$index}}</a></li>
 		</ul>
 	</li>
-	<li>Planets :
+	<li class="list-group-item">Planets :
 		<ul ng-repeat="planet in film.data.planets track by $index">
-			<li><a href="#!/planets/{{extractUrlId(planet)}}">planet {{$index}}</a></li>
+			<li class="list-group-item"><a href="#!/planets/{{extractUrlId(planet)}}">planet {{$index}}</a></li>
 		</ul>
 	</li>
-	<li>Species :
+	<li class="list-group-item">Species :
 		<ul ng-repeat="race in film.data.species track by $index">
-			<li><a href="#!/species/{{extractUrlId(race)}}">race {{$index}}</a></li>
+			<li class="list-group-item"><a href="#!/species/{{extractUrlId(race)}}">race {{$index}}</a></li>
 		</ul>
 	</li>
-	<li>Starships :
+	<li class="list-group-item">Starships :
 		<ul ng-repeat="starship in film.data.starships track by $index">
-			<li><a href="#!/starships/{{extractUrlId(starship)}}">starship {{$index}}</a></li>
+			<li class="list-group-item"><a href="#!/starships/{{extractUrlId(starship)}}">starship {{$index}}</a></li>
 		</ul>
 	</li>
 </ul>
 
+
+
+
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 </div>

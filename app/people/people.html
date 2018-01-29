@@ -17,14 +17,14 @@
 <button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
 </div>
 
-<div ng-if="people">
+<div ng-show="people">
 
 	<!-- {{filmNames}} -->
 
 <h2>{{people.data.name}}</h2>
 <div ng-if="people.data.films">Films :
 	<span ng-repeat="film in people.data.films track by $index">
-		<a href="#!/films/{{extractUrlId(film)}}"> film {{$index}}</a>
+		<a href="#!/films/"> s</a>
 	</span>
 </div>
 

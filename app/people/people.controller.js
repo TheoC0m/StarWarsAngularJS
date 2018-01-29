@@ -17,23 +17,38 @@ angular.module('StarWarsAngularJS')
 			PeopleService.getPeople($routeParams.peopleId)
 				.then(function(response){
 					if(response != undefined){
+
 						$scope.people = response;
 						console.log($scope.people);
-
-						//On recupere les titres des films
-						// for (var film in $scope.people.data.films){
-						// ToolsFactory.getFilmName(film)
-						// .then(function(filmName){
-						// 	if(filmName != undefined){
-						// 		$scope.filmNames.push(filmName);
-						// 	}
-						// })
-						// }
-
-
-
+						$scope.addFilmTitles();
 					}
 				})
+		}
+
+		$scope.addFilmTitles = function(){
+			//filmArray = $scope.people.data.films
+
+			console.log("filmarray avant: "+$scope.people.data.films);
+
+			//pour chaque film du personnage
+			for(var i = 0; i < $scope.people.data.films.length; i++){
+				var ftitle = ToolsFactory.getFilmName($scope.extractUrlId($scope.people.data.films[i]))
+					.then(function(filmTitle){
+						if (filmTitle != undefined){
+
+
+							console.log("filmName :"+filmTitle);
+							title = filmTitle;
+							$scope.people.data.films[i] = {'url': $scope.people.data.films[i], 'title': ftitle};
+
+								console.log($scope.people.data.films[i]);
+
+						}
+				});
+
+			}
+			console.log($scope.people.data.films);
+			console.log($scope.people);
 		}
 
 		$scope.searchPeople = function(){
