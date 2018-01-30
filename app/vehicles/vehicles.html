@@ -1,5 +1,7 @@
-<div ng-show="!loaded">
-	<h1>Loading...</h1>
+<div class="row  divloader" ng-show="!loaded">
+	<div class="col-12 loader text-center align-self-center">
+		<i class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
+	</div>
 </div>
 
 <div ng-show="vehicles && loaded">
@@ -21,7 +23,7 @@
 	<h2>{{vehicle.data.name}}</h2>
 	<div ng-if="filmsUrlName.length > 0">Films :
 		<span ng-repeat="film in filmsUrlName track by $index">
-		<a href="#!/films/{{film.id}}">{{film.name}}</a>, 
+		<a href="#!/films/{{film.id}}">{{film.name}}</a>,
 	</span>
 	</div>
 

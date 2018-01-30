@@ -1,17 +1,20 @@
-<div ng-show="!loaded">
-	<h1>Loading...</h1>
+<div class="row  divloader" ng-show="!loaded">
+	<div class="col-12 loader text-center align-self-center">
+		<i class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
+	</div>
 </div>
 
-<div class="row" ng-show="films && loaded">
+<div ng-show="films && loaded">
 	<h1>Films</h1>
-
-	<div class="col card-group" ng-repeat="film in films.data.results track by $index">
-		<div class="card my-2" style="width: 18rem;">
-			<div class="card-body">
-				<h5 class="card-title"><a href="#!/films/{{extractUrlId(film.url)}}">{{film.title}}</a></h5>
-				<h6 class="card-subtitle mb-2 text-muted">Episode {{film.episode_id}}</h6>
-				<p class="card-text">Directed by {{film.director}}</p>
-				<p class="card-text">Produced by {{film.producer}}</p>
+	<div class="row">
+		<div class="col card-group" ng-repeat="film in films.data.results track by $index">
+			<div class="card my-2" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title"><a href="#!/films/{{extractUrlId(film.url)}}">{{film.title}}</a></h5>
+					<h6 class="card-subtitle mb-2 text-muted">Episode {{film.episode_id}}</h6>
+					<p class="card-text">Directed by {{film.director}}</p>
+					<p class="card-text">Produced by {{film.producer}}</p>
+				</div>
 			</div>
 		</div>
 	</div>
