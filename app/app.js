@@ -1,65 +1,73 @@
 var app = angular.module('StarWarsAngularJS', ['ngRoute']);
 
-app.config(config);
-config.$inject = ['$routeProvider'];
-function config($routeProvider){
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: 'app/home/home.html',
+            controller: 'HomeController'
 
-	$routeProvider
+        })
+        .when('/people', {
+            templateUrl: 'app/people/people.html',
+            controller: 'PeopleController'
 
-	   .when('/', {
-		   templateUrl: 'app/home/home.html', controller: 'HomeController'
+        })
+        .when('/people/:peopleId', {
+            templateUrl: 'app/people/people.html',
+            controller: 'PeopleController'
 
-	   })
-	   .when('/people', {
-		  templateUrl: 'app/people/people.html', controller: 'PeopleController'
+        })
+        .when('/vehicles', {
+            templateUrl: 'app/vehicles/vehicles.html',
+            controller: 'VehiclesController'
 
-	  })
-	  .when('/people/:peopleId', {
-		 templateUrl: 'app/people/people.html', controller: 'PeopleController'
+        })
+        .when('/vehicles/:vehicleId', {
+            templateUrl: 'app/vehicles/vehicles.html',
+            controller: 'VehiclesController'
 
-	 })
-	 .when('/vehicles', {
-		templateUrl: 'app/vehicles/vehicles.html', controller: 'VehiclesController'
+        })
+        .when('/films', {
+            templateUrl: 'app/films/films.html',
+            controller: 'FilmsController'
 
-	})
-		.when('/vehicles/:vehicleId', {
-	   templateUrl: 'app/vehicles/vehicles.html', controller: 'VehiclesController'
+        })
+        .when('/films/:filmId', {
+            templateUrl: 'app/films/films.html',
+            controller: 'FilmsController'
 
-   	})
-		.when('/films', {
-	   templateUrl: 'app/films/films.html', controller: 'FilmsController'
+        })
+        .when('/starships', {
+            templateUrl: 'app/starships/starships.html',
+            controller: 'StarshipsController'
 
-	})
-		.when('/films/:filmId', {
-	  templateUrl: 'app/films/films.html', controller: 'FilmsController'
+        })
+        .when('/starships/:starshipId', {
+            templateUrl: 'app/starships/starships.html',
+            controller: 'StarshipsController'
 
-	})
-	.when('/starships', {
-   templateUrl: 'app/starships/starships.html', controller: 'StarshipsController'
+        })
+        .when('/species', {
+            templateUrl: 'app/species/species.html',
+            controller: 'SpeciesController'
 
-})
-	.when('/starships/:starshipId', {
-  templateUrl: 'app/starships/starships.html', controller: 'StarshipsController'
+        })
+        .when('/species/:speciesId', {
+            templateUrl: 'app/species/species.html',
+            controller: 'SpeciesController'
 
-})
-.when('/species', {
-templateUrl: 'app/species/species.html', controller: 'SpeciesController'
+        })
+        .when('/planets', {
+            templateUrl: 'app/planets/planets.html',
+            controller: 'PlanetsController'
 
-})
-.when('/species/:speciesId', {
-templateUrl: 'app/species/species.html', controller: 'SpeciesController'
+        })
+        .when('/planets/:planetId', {
+            templateUrl: 'app/planets/planets.html',
+            controller: 'PlanetsController'
 
-})
-.when('/planets', {
-templateUrl: 'app/planets/planets.html', controller: 'PlanetsController'
-
-})
-.when('/planets/:planetId', {
-templateUrl: 'app/planets/planets.html', controller: 'PlanetsController'
-
-})
-	   .otherwise({
-		   redirectTo: '/'
-	   });
-
-}
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+}]);
