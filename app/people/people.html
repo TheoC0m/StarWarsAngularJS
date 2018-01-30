@@ -1,7 +1,5 @@
-<h1>this is the people view</h1>
-
 <div ng-show="peoples">
-
+<h1>Characters</h1>
 
 
     <div>
@@ -30,7 +28,7 @@
     <div ng-if="people.data.films">Films :
         <p>
         <span ng-repeat="film in filmsUrlName track by $index">
-            <a href="#!/films/{{film.url}}">{{film.name}}</a>,
+            <a href="#!/films/{{film.id}}">{{film.name}}</a>,
         </span>
         </p>
     </div>
@@ -38,7 +36,7 @@
     <ul>
         <li ng-if="planetsUrlName">Homeworld:
             <span ng-repeat="planet in planetsUrlName track by $index">
-            <a href="#!/planets/{{planet.url}}">{{planet.name}} </a>
+            <a href="#!/planets/{{planet.id}}">{{planet.name}} </a>
         </span>
         </li>
         <li>Gender: {{people.data.gender}}</li>
@@ -48,24 +46,24 @@
         <li>Eye color: {{people.data.eye_color}}</li>
         <li>Skin color: {{people.data.skin_color}}</li>
         <li>Hair color: {{people.data.hair_color}}</li>
-        <li>Species :
-            <ul ng-repeat="race in people.data.species track by $index">
-                <li ng-if="people.data.species">
-                    <a href="#!/species/{{extractUrlId(race)}}">race {{$index}}</a>
+        <li ng-if="speciesUrlName.length > 0">Species :
+            <ul ng-repeat="race in speciesUrlName track by $index">
+                <li>
+                    <a href="#!/species/{{race.id}}">{{race.name}}</a>
                 </li>
             </ul>
         </li>
         <li ng-if="starshipsUrlName.length > 0">Starships :
             <ul ng-repeat="starship in starshipsUrlName track by $index">
                 <li>
-                    <a href="#!/starships/{{starship.url}}">{{starship.name}}</a>
+                    <a href="#!/starships/{{starship.id}}">{{starship.name}}</a>
                 </li>
             </ul>
         </li>
         <li ng-if="vehiclesUrlName.length > 0">Vehicles :
             <ul ng-repeat="vehicle in vehiclesUrlName track by $index">
                 <li>
-                    <a href="#!/vehicles/{{vehicle.url}}">{{vehicle.name}}</a>
+                    <a href="#!/vehicles/{{vehicle.id}}">{{vehicle.name}}</a>
                 </li>
             </ul>
         </li>

@@ -29,6 +29,9 @@ angular.module('StarWarsAngularJS')
                         $scope.starshipsUrlName = [];
                         $scope.starshipsUrlName = ToolsFactory.getStarshipsUrlName(response.data.starships);
 
+                        $scope.speciesUrlName = [];
+                        $scope.speciesUrlName = ToolsFactory.getSpeciesUrlName(response.data.species);
+
                         if (response != undefined) {
 
                             $scope.people = response;
