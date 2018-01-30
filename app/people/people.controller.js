@@ -19,14 +19,13 @@ angular.module('StarWarsAngularJS')
 						if (response != undefined) {
 							$scope.people = response;
 							console.log($scope.people);
-						}
-						
-						$scope.filmsUrlName = ToolsFactory.getFilmUrlName(response.data.films);
-						$scope.vehiclesUrlName = ToolsFactory.getVehiclesUrlName(response.data.vehicles);
-						$scope.starshipsUrlName = ToolsFactory.getStarshipsUrlName(response.data.starships);
-						$scope.planetsUrlName = ToolsFactory.getPlanetsUrlName(response.data.homeworld);
-						$scope.speciesUrlName = ToolsFactory.getSpeciesUrlName(response.data.species);
 
+							$scope.filmsUrlName = ToolsFactory.getFilmUrlName(response.data.films);
+							$scope.vehiclesUrlName = ToolsFactory.getVehiclesUrlName(response.data.vehicles);
+							$scope.starshipsUrlName = ToolsFactory.getStarshipsUrlName(response.data.starships);
+							$scope.planetsUrlName = ToolsFactory.getPlanetsUrlName(response.data.homeworld);
+							$scope.speciesUrlName = ToolsFactory.getSpeciesUrlName(response.data.species);
+						}
 						$scope.loaded = true;
 					})
 			}

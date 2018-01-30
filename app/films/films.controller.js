@@ -10,6 +10,7 @@ angular.module('StarWarsAngularJS')
 						$scope.films = response;
 						console.log($scope.films);
 					}
+					$scope.loaded = true;
 				})
 		}
 
@@ -19,6 +20,14 @@ angular.module('StarWarsAngularJS')
 					if(response != undefined){
 						$scope.film = response;
 						console.log($scope.film);
+
+						$scope.peopleUrlName = ToolsFactory.getPeopleUrlName(response.data.characters);
+						$scope.vehiclesUrlName = ToolsFactory.getVehiclesUrlName(response.data.vehicles);
+						$scope.starshipsUrlName = ToolsFactory.getStarshipsUrlName(response.data.starships);
+						$scope.planetsUrlName = ToolsFactory.getPlanetsUrlName(response.data.planets);
+						$scope.speciesUrlName = ToolsFactory.getSpeciesUrlName(response.data.species);
+
+						$scope.loaded = true;
 					}
 				})
 		}
@@ -40,15 +49,24 @@ angular.module('StarWarsAngularJS')
 
 		$scope.start = function(){
 			console.log($routeParams);
+			$scope.loaded = false;
+			$scope.film = null;
+			$scope.films = null;
 
-			$scope.characterName = [];
+			$scope.peopleUrlName = [];
+			$scope.vehiclesUrlName = [];
+			$scope.planetsUrlName = [];
+			$scope.starshipsUrlName = [];
+			$scope.speciesUrlName = [];
+
+
 			if($routeParams.filmId){
-				$scope.film = null;
+
 				$scope.getFilms();
 
 			}
 			else{
-				$scope.films = null;
+
 				$scope.pageNumber = 1;
 				$scope.getAllFilms();
 			}
