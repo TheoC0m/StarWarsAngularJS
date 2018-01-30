@@ -1,4 +1,9 @@
-<div ng-show="peoples">
+
+<div ng-show="!loaded">
+<h1>Loading...</h1>
+</div>
+
+<div ng-show="peoples && loaded">
 <h1>Characters</h1>
 
 
@@ -20,7 +25,7 @@
             <button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
 </div>
 
-<div ng-show="people">
+<div ng-show="people && loaded">
 
     <!-- {{filmNames}} -->
 
