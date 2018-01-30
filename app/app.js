@@ -1,4 +1,4 @@
-var app = angular.module('StarWarsAngularJS', ['ngRoute']);
+var app = angular.module('StarWarsAngularJS', ['ngRoute', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
