@@ -4,8 +4,13 @@ angular.module('StarWarsAngularJS')
 			var methods = {
 
 				extractUrlId: function(string) {
-					var tab = string.split("/");
-					return tab[tab.length - 2];
+					if(string != null){
+						var tab = string.split("/");
+						return tab[tab.length - 2];
+					}
+					else{
+						return undefined;
+					}
 				},
 
 				getFilmUrlName: function(filmsUrlArray) {
@@ -125,7 +130,7 @@ angular.module('StarWarsAngularJS')
 					});
 					return peopleUrlName;
 				},
-				
+
 			}
 			return methods
 		}
