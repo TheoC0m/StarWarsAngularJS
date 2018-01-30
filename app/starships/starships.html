@@ -1,6 +1,8 @@
-<h1>this is the starship view</h1>
+<div ng-show="!loaded">
+	<h1>Loading...</h1>
+</div>
 
-<div ng-show="starships">
+<div ng-show="starships && loaded">
 	<div>
 	<input type="text" ng-model="starshipsSearched">
 	<button ng-click="searchStarships()">Search a starship</button>
@@ -14,12 +16,12 @@
 <button type="button" name="next" ng-click="pageNumberIncrement()"> -> </button>
 </div>
 
-<div ng-if="starship">
+<div ng-if="starship && loaded">
 
 <h2>{{starship.data.name}}</h2>
-<div ng-if="starship.data.films">Films :
-	<span ng-repeat="film in starship.data.films track by $index">
-		<a href="#!/films/{{extractUrlId(film)}}">film {{$index}}</a>
+<div ng-if="filmsUrlName.length > 0">Films :
+	<span ng-repeat="film in filmsUrlName track by $index">
+		<a href="#!/films/{{film.id}}">{{film.name}}</a>
 	</span>
 </div>
 
@@ -34,9 +36,9 @@
 	<li>Cargo capacity: {{starship.data.cargo_capacity}}</li>
 	<li>Consumables: {{starship.data.consumables}}</li>
 	<li>Price: {{starship.data.cost_in_credits}}</li>
-	<li ng-if="starship.data.pilots.length > 0 ">Pilot(s) :
-		<ul ng-repeat="pilot in starship.data.pilots track by $index">
-			<li><a href="#!/people/{{extractUrlId(pilot)}}">pilot {{$index}}</a></li>
+	<li ng-if="peopleUrlName.length > 0 ">Pilot(s) :
+		<ul ng-repeat="pilot in peopleUrlName track by $index">
+			<li><a href="#!/people/{{pilot.id}}">{{pilot.name}}</a></li>
 		</ul>
 	</li>
 </ul>
