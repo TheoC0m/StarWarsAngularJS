@@ -56,7 +56,7 @@ angular.module('StarWarsAngularJS')
 			}
 
 			$scope.pageNumberDecrement = function() {
-				if ($scope.pageNumber > 0)
+				if ($scope.pageNumber > 1)
 					$scope.pageNumber--;
 				$scope.getAllSpecies();
 			}
@@ -66,7 +66,7 @@ angular.module('StarWarsAngularJS')
 				$scope.loaded = false;
 				$scope.race = null;
 				$scope.species = null;
-				$scope.speciesSearched = null;
+				$scope.speciesSearched = '';
 				$scope.searchResult = null;
 				$scope.filmsUrlName = [];
 				$scope.peopleUrlName = [];

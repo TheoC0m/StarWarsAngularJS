@@ -54,7 +54,12 @@
 
 <div ng-if="planet && loaded">
 
-	<h2>{{planet.data.name}}</h2>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb h2">
+			<li class="breadcrumb-item"><a href="#!/planets">Planets</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{{planet.data.name}}</li>
+		</ol>
+	</nav>
 
 	<ul class="list-group">
 		<li class="list-group-item" ng-if="filmsUrlName.length > 0">Films : <span ng-repeat="film in filmsUrlName track by $index">
@@ -75,5 +80,5 @@
 			</ul>
 		</li>
 	</ul>
-<hr class="my-4">
+	<hr class="my-4">
 </div>

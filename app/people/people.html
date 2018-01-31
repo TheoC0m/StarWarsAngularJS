@@ -51,7 +51,12 @@
 	</div>
 </div>
 <div ng-show="people && loaded">
-	<h2>{{people.data.name}}</h2>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb h2">
+			<li class="breadcrumb-item"><a href="#!/people">People</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{{people.data.name}}</li>
+		</ol>
+	</nav>
 	<ul class="list-group">
 		<li class="list-group-item" ng-if="filmsUrlName.length > 0">Films : <span ng-repeat="film in filmsUrlName track by $index">
                 <a href="#!/films/{{film.id}}">{{film.name}}</a>,

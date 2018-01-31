@@ -45,7 +45,7 @@ angular.module('StarWarsAngularJS')
 				$scope.getAllPlanets();
 			}
 			$scope.pageNumberDecrement = function() {
-				if ($scope.pageNumber > 0)
+				if ($scope.pageNumber > 1)
 					$scope.pageNumber--;
 				$scope.getAllPlanets();
 			}
