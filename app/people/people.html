@@ -53,7 +53,7 @@
 <div ng-show="people && loaded">
 	<h2>{{people.data.name}}</h2>
 	<ul class="list-group">
-		<li class="list-group-item" ng-if="people.data.films">Films : <span ng-repeat="film in filmsUrlName track by $index">
+		<li class="list-group-item" ng-if="filmsUrlName.length > 0">Films : <span ng-repeat="film in filmsUrlName track by $index">
                 <a href="#!/films/{{film.id}}">{{film.name}}</a>,
             </span>
 		</li>
