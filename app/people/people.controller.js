@@ -59,7 +59,7 @@ angular.module('StarWarsAngularJS')
 			$scope.start = function() {
 				console.log($routeParams);
 				$scope.loaded = false;
-				$scope.peopleSearched = "test";
+				$scope.peopleSearched = '';
 				$scope.searchResult = null;
 				$scope.people = null;
 				$scope.peoples = null;
