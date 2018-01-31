@@ -36,7 +36,7 @@ angular.module('StarWarsAngularJS')
 						if (response != undefined) {
 							console.log(response);
 							$scope.searchResult = response;
-							console.log($scope.sepeciesSearched);
+							console.log($scope.speciesSearched);
 						}
 					})
 			}

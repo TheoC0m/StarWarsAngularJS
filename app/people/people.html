@@ -5,13 +5,6 @@
 <div ng-show="peoples && loaded">
 	<h1>Characters</h1>
 	<div class="row">
-		<!-- <div>
-		<input type="text" ng-model="peopleSearched">
-		<button ng-click="searchPeople()">Search a character</button>
-		<span ng-repeat="result in searchResult.data.results track by $index">
-            <a href="#!/people/{{extractUrlId(result.url)}}">{{result.name}}</a>
-        </span>
-	</div> -->
 		<div class=" col-sm-12">
 			<div class="input-group mb-3" uib-dropdown>
 				<input uib-dropdown-toggle ng-model="peopleSearched" ng-change="searchPeople(peopleSearched)" type="text" class="form-control" placeholder="Search..." aria-label="character's name" aria-describedby="basic-addon2">
